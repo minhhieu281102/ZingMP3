@@ -1,5 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Header, Slider } from '../../components'
 
 export default function Home() {
-  return <div>Home</div>
+  return (
+    <div className='overlow-y-auto'>
+      <Slider />
+    </div>
+  )
 }
