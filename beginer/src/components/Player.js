@@ -36,7 +36,7 @@ export default function Player() {
   const handleTogglePlayMusic = () => {}
 
   return (
-    <div className='px-5 h-full bg-white flex py-2'>
+    <div className='px-5 h-full bg-[#fff] flex py-2'>
       <div className='w-[30%] flex flex-auto items-center gap-4'>
         <img src={songInfo?.thumbnail} alt='thubnail' className='w-16 h-16 object-cover rounded-md' />
         <div className='flex flex-col '>

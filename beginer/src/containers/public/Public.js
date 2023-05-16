@@ -4,12 +4,12 @@ import { Player, SideBarLeft, SideBarRight, Header } from '../../components'
 
 export default function Public() {
   return (
-    <div className='w-full flex flex-col min-h-screen'>
+    <div className='w-full flex flex-col min-h-screen pb-[90px]'>
       <div className='flex w-full h-full flex-auto'>
         <div className='w-[240px] flex-none min-h-screen bg-[#F2F2F2]'>
           <SideBarLeft />
         </div>
-        <div className='flex-auto'>
+        <div className='flex-auto '>
           <div className='mb-[25px] h-[70px] flex items-center px-[59px]'>
             <Header />
           </div>

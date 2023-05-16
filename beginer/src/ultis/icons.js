@@ -10,9 +10,9 @@ import {
 import { MdOutlineFeed } from 'react-icons/md'
 import { HiArrowNarrowLeft } from 'react-icons/hi'
 import { HiArrowNarrowRight } from 'react-icons/hi'
-import { CiSearch, CiRepeat } from 'react-icons/ci'
+import { CiSearch, CiRepeat, CiMusicNote1 } from 'react-icons/ci'
 import { AiOutlineHeart } from 'react-icons/ai'
-import { BsThreeDotsVertical } from 'react-icons/bs'
+import { BsThreeDotsVertical, BsDot } from 'react-icons/bs'
 import { RxShuffle } from 'react-icons/rx'
 const icons = {
   MdOutlineLibraryMusic,
@@ -29,7 +29,9 @@ const icons = {
   TbPlayerSkipForwardFilled,
   TbPlayerSkipBackFilled,
   TbPlayerPauseFilled,
-  RxShuffle
+  RxShuffle,
+  CiMusicNote1,
+  BsDot
 }
 
 export default icons

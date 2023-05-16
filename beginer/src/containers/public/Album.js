@@ -29,8 +29,10 @@ export default function Album() {
           <span>Cập nhật: </span>
           <span>{moment.unix(playlistData?.contentLastUpdate).format('DD/MM/YYYY')}</span>
         </span>
-        <span className='text-[#A4A4A4] text-sm'>{playlistData?.artistsNames}</span>
-        <span className='text-[#A4A4A4] text-sm'>{`${Math.round(playlistData?.like / 1000)}K người yêu thích`}</span>
+        <span className='text-[#A4A4A4] text-xs hover:text-hover-pink hover:cursor-pointer'>
+          {playlistData?.artistsNames}
+        </span>
+        <span className='text-[#A4A4A4] text-sm '>{`${Math.round(playlistData?.like / 1000)}K người yêu thích`}</span>
       </div>
       <div className='flex-auto text-sm'>
         <span>
