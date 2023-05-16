@@ -1,12 +1,22 @@
 import React, { memo } from 'react'
 import icons from '../ultis/icons'
 import moment from 'moment'
+import { useDispatch } from 'react-redux'
+import * as actions from '../store/actions'
 
 const { CiMusicNote1 } = icons
 export function List({ songData }) {
+  const dispatch = useDispatch()
+
   console.log(songData)
   return (
-    <div className='flex justify-between items-center p-[10px] h-[60px] hover:bg-[#F2F2F2] border-red-800 '>
+    <div
+      className='flex justify-between items-center p-[10px] h-[60px] hover:bg-[#F2F2F2]  '
+      onClick={() => {
+        dispatch(actions.setCurSongId(songData?.encodeId))
+        dispatch(actions.play(true))
+      }}
+    >
       <div className='flex items-center gap-2 flex-1 '>
         <span>
           <CiMusicNote1 />
@@ -19,7 +29,9 @@ export function List({ songData }) {
           <span className='hover:text-hover-pink hover:cursor-pointer'>{songData?.artistsNames}</span>
         </span>
       </div>
-      <div className='flex-1 items-center flex hover:text-hover-pink hover:cursor-pointer'>{songData?.album.title}</div>
+      <div className='flex-1 items-center flex hover:text-hover-pink hover:cursor-pointer'>
+        {songData?.album?.title}
+      </div>
       <div className='flex-1 flex justify-end'>{moment.utc(songData?.duration * 1000).format('mm:ss')}</div>
     </div>
   )

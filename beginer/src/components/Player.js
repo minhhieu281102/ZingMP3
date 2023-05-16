@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import * as apis from '../apis'
 import icons from '../ultis/icons'
+import * as actions from '../store/actions'
 
 const {
   AiOutlineHeart,
@@ -16,6 +17,8 @@ const {
 } = icons
 
 export default function Player() {
+  const dispatch = useDispatch()
+  const audioEl = useRef(new Audio())
   const { curSongId, isPlaying } = useSelector((state) => state.music)
   const [songInfo, setSongInfo] = useState(null)
   const [sourse, setSourse] = useState(null)
@@ -33,7 +36,24 @@ export default function Player() {
     fetchDetailSong()
   }, [curSongId])
 
-  const handleTogglePlayMusic = () => {}
+  useEffect(() => {
+    audioEl.current.pause()
+    audioEl.current.src = sourse
+    audioEl.current.load()
+    if (isPlaying) {
+      audioEl.current.play()
+    }
+  }, [curSongId, sourse])
+
+  const handleTogglePlayMusic = () => {
+    if (isPlaying) {
+      audioEl.current.pause()
+      dispatch(actions.play(false))
+    } else {
+      audioEl.current.play()
+      dispatch(actions.play(true))
+    }
+  }
 
   return (
     <div className='px-5 h-full bg-[#fff] flex py-2'>

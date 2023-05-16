@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import * as apis from '../../apis'
 import moment from 'moment'
 import { Lists } from '../../components'
+import { Scrollbars } from 'react-custom-scrollbars'
 
 export default function Album() {
   const { title, id } = useParams()
@@ -21,7 +22,7 @@ export default function Album() {
   }, [id])
 
   return (
-    <div className='flex gap-8 w-full px-[59px]'>
+    <div className='flex gap-8 w-full h-full px-[59px]'>
       <div className='flex-none w-1/4 flex flex-col items-center gap-1'>
         <img src={playlistData?.thumbnailM} alt='' className='w-full object-contain rounded-md' />
         <h3 className='text-[20px] font-bold text-[#32323D]'>{playlistData?.title}</h3>
@@ -34,13 +35,15 @@ export default function Album() {
         </span>
         <span className='text-[#A4A4A4] text-sm '>{`${Math.round(playlistData?.like / 1000)}K người yêu thích`}</span>
       </div>
-      <div className='flex-auto text-sm'>
-        <span>
-          <span className='text-[#A4A4A4]'>Lời tựa </span>
-          <span>{playlistData?.sortDescription}</span>
-        </span>
-        <Lists songs={playlistData?.song?.items} totalDuration={playlistData?.song?.totalDuration} />
-      </div>
+      <Scrollbars style={{ width: '100%', height: '80%' }}>
+        <div className='flex-auto text-sm mr-2'>
+          <span>
+            <span className='text-[#A4A4A4]'>Lời tựa </span>
+            <span>{playlistData?.sortDescription}</span>
+          </span>
+          <Lists songs={playlistData?.song?.items} totalDuration={playlistData?.song?.totalDuration} />
+        </div>
+      </Scrollbars>
     </div>
   )
 }

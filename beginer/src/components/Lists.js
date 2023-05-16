@@ -21,9 +21,9 @@ export function Lists({ songs, totalDuration }) {
         <div className='flex pt-3 '>
           <span>{songs?.length} bài hát</span>
           <span className='flex items-center justify-center'>
-            <BsDot />
+            <BsDot size={24} />
           </span>
-          <span>{moment.utc(totalDuration * 1000).format(`h giờ : mm phút`)}</span>
+          <span>{moment.utc(totalDuration * 1000).format(`hh:mm:ss `)}</span>
         </div>
       </div>
     </div>
