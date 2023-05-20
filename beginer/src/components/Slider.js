@@ -51,14 +51,17 @@ export default function Slider() {
     if (item?.type === 1) {
       dispatch(actions.setCurSongId(item.encodeId))
       dispatch(actions.play(true))
+      dispatch(actions.setPlaylist(null))
     } else if (item?.type === 4) {
       const albumPath = item?.link?.split('.')[0]
       navigate(albumPath)
+    } else {
+      dispatch(actions.setPlaylist(null))
     }
   }
 
   return (
-    <div className='w-full overflow-hidden px-[59px] '>
+    <div className='w-full overflow-hidden  z-1'>
       <div className='flex w-full gap-8 pt-8 overflow-x-hidden'>
         {banner?.map((item, index) => (
           <img

@@ -3,6 +3,8 @@ const actionTypes = {
   SET_CUR_SONG_ID: 'SET_SONG_ID',
 
   //music
-  PLAY: 'PLAY'
+  PLAY: 'PLAY',
+  SET_ALBUM: 'SET_ALBUM',
+  PLAYLIST: 'PLAYLIST'
 }
 export default actionTypes

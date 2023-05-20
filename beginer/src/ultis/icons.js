@@ -5,14 +5,16 @@ import {
   TbPlayerPauseFilled,
   TbPlayerPlayFilled,
   TbPlayerSkipForwardFilled,
-  TbPlayerSkipBackFilled
+  TbPlayerSkipBackFilled,
+  TbRepeat,
+  TbRepeatOnce
 } from 'react-icons/tb'
 import { MdOutlineFeed } from 'react-icons/md'
 import { HiArrowNarrowLeft } from 'react-icons/hi'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 import { CiSearch, CiRepeat, CiMusicNote1 } from 'react-icons/ci'
 import { AiOutlineHeart } from 'react-icons/ai'
-import { BsThreeDotsVertical, BsDot } from 'react-icons/bs'
+import { BsThreeDotsVertical, BsDot, BsMusicNoteList, BsVolumeDown, BsVolumeMute, BsVolumeUp } from 'react-icons/bs'
 import { RxShuffle } from 'react-icons/rx'
 const icons = {
   MdOutlineLibraryMusic,
@@ -31,7 +33,13 @@ const icons = {
   TbPlayerPauseFilled,
   RxShuffle,
   CiMusicNote1,
-  BsDot
+  BsDot,
+  TbRepeat,
+  TbRepeatOnce,
+  BsMusicNoteList,
+  BsVolumeDown,
+  BsVolumeMute,
+  BsVolumeUp
 }
 
 export default icons

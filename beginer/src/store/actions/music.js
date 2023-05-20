@@ -10,3 +10,13 @@ export const play = (flag) => ({
   type: actionTypes.PLAY,
   flag: flag
 })
+
+export const playAlbum = (flag) => ({
+  type: actionTypes.SET_ALBUM,
+  flag: flag
+})
+
+export const setPlaylist = (songs) => ({
+  type: actionTypes.PLAYLIST,
+  songs
+})

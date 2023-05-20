@@ -8,13 +8,13 @@ const { CiMusicNote1 } = icons
 export function List({ songData }) {
   const dispatch = useDispatch()
 
-  console.log(songData)
   return (
     <div
       className='flex justify-between items-center p-[10px] h-[60px] hover:bg-[#F2F2F2]  '
       onClick={() => {
         dispatch(actions.setCurSongId(songData?.encodeId))
         dispatch(actions.play(true))
+        dispatch(actions.playAlbum(true))
       }}
     >
       <div className='flex items-center gap-2 flex-1 '>
