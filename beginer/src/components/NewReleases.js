@@ -19,6 +19,7 @@ export default function NewReleases() {
             title={item?.title}
             artist={item?.artistsNames}
             releaseDate={item?.releaseDate}
+            id={item?.encodeId}
           />
         ))}
       </div>

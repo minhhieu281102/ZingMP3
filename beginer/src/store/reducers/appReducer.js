@@ -7,7 +7,9 @@ const initState = {
   chill: {},
   albumHot: {},
   top100: {},
-  newReleases: {}
+  newReleases: {},
+  weekChart: {},
+  chart: {}
 }
 
 const appReducer = (state = initState, action) => {
@@ -21,7 +23,9 @@ const appReducer = (state = initState, action) => {
         chill: action.homeData?.find((item) => item.sectionId === 'hEditorTheme') || {},
         albumHot: action.homeData?.find((item) => item.sectionId === 'hAlbum') || {},
         top100: action.homeData?.find((item) => item.sectionId === 'h100') || {},
-        newReleases: action.homeData?.find((item) => item.sectionType === 'new-release') || {}
+        newReleases: action.homeData?.find((item) => item.sectionType === 'new-release') || {},
+        weekChart: action.homeData?.find((item) => item.sectionType === 'weekChart') || {},
+        chart: action.homeData?.find((item) => item.sectionType === 'RTChart') || {}
       }
 
     default:

@@ -33,7 +33,7 @@ export default function Player({ setIsShowRightSideBar }) {
   const [repeatMode, setRepeatMode] = useState(0)
   const [audio, setAudio] = useState(new Audio())
   const [curSecond, setCurSecond] = useState(0)
-  const [volume, setVolume] = useState(100)
+  const [volume, setVolume] = useState(50)
   const thumbRef = useRef()
   const trackRef = useRef()
 

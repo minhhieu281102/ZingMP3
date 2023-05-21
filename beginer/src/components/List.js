@@ -10,7 +10,7 @@ export function List({ songData }) {
 
   return (
     <div
-      className='flex justify-between items-center p-[10px] h-[60px] hover:bg-[#F2F2F2]  '
+      className='flex justify-between items-center p-[10px] h-[60px] hover:bg-[#F2F2F2] cursor-pointer '
       onClick={() => {
         dispatch(actions.setCurSongId(songData?.encodeId))
         dispatch(actions.play(true))
@@ -26,12 +26,10 @@ export function List({ songData }) {
           <span className='text-sm font-semibold'>
             {songData?.title?.length > 30 ? `${songData?.title?.slice(0, 40)}...` : songData?.title}
           </span>
-          <span className='hover:text-hover-pink hover:cursor-pointer'>{songData?.artistsNames}</span>
+          <span className='hover:text-hover-pink '>{songData?.artistsNames}</span>
         </span>
       </div>
-      <div className='flex-1 items-center flex hover:text-hover-pink hover:cursor-pointer'>
-        {songData?.album?.title}
-      </div>
+      <div className='flex-1 items-center flex hover:text-hover-pink '>{songData?.album?.title}</div>
       <div className='flex-1 flex justify-end'>{moment.utc(songData?.duration * 1000).format('mm:ss')}</div>
     </div>
   )

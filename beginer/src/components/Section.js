@@ -23,12 +23,21 @@ export function Section({ data }) {
                 }}
               />
               <span className='flex flex-col'>
-                <span className='font-semibold'>{item?.title}</span>
-                <span className='text-[#7C7C7C]'>
-                  {item?.sortDescription?.length > 50
-                    ? `${item?.sortDescription?.slice(0, 50)}...`
-                    : item?.sortDescription}
-                </span>
+                {item?.sortDescription !== '' ? (
+                  <div className='flex flex-col'>
+                    <span className='font-semibold'>{item?.title}</span>
+                    <span className='text-[#7C7C7C]'>
+                      {item?.sortDescription?.length > 50
+                        ? `${item?.sortDescription?.slice(0, 50)}...`
+                        : item?.sortDescription}
+                    </span>
+                  </div>
+                ) : (
+                  <div className='flex flex-col'>
+                    <span className='font-semibold'>{item?.title}</span>
+                    <span className='text-[#7C7C7C]'>{item?.artistsNames}</span>
+                  </div>
+                )}
               </span>
             </div>
           ))}

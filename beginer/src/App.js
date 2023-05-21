@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import * as actions from './store/actions/home'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { WeekRank } from './components'
 
 function App() {
   const dispatch = useDispatch()
@@ -22,25 +23,13 @@ function App() {
             <Route path={path.MY_MUSIC} element={<Personal />} />
             <Route path={path.ALBUM__TITLE__ID} element={<Album />} />
             <Route path={path.PLAYLIST__TITLE__ID} element={<Album />} />
+            <Route path={path.WEEKRANK__TITLE__ID} element={<WeekRank />} />
 
             <Route path={path.STAR} element={<Home />} />
           </Route>
         </Routes>
       </div>
-      <ToastContainer
-        position='top-right'
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme='light'
-      />
-      {/* Same as */}
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </div>
   )
 }

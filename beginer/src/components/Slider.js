@@ -68,7 +68,9 @@ export default function Slider() {
             onClick={() => handleClickBanner(item, index)}
             key={item.encodeId}
             src={item.banner}
-            className={`slider-item flex-1 object-contain w-[30%] rounded-lg ${index <= 2 ? 'block' : 'hidden'}`}
+            className={`slider-item flex-1 object-contain w-[30%] rounded-lg ${
+              index <= 2 ? 'block' : 'hidden'
+            } cursor-pointer`}
           />
         ))}
       </div>

@@ -75,6 +75,10 @@ module.exports = {
         'rotate-center': 'rotate-center 8s linear infinite both;',
         'img-scale-up': 'img-scale-up 0.3s linear both ;',
         'img-scale-down': 'img-scale-down 0.3s linear both ;'
+      },
+      flex: {
+        4: '4 4 0%',
+        6: '6 6 0%'
       }
     },
     screens: {
