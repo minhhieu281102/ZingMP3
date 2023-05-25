@@ -6,7 +6,6 @@ import { ChartSection } from '../../components/ChartSection'
 
 export default function Home() {
   const { energy, famousArtists, chill, albumHot, top100, weekChart } = useSelector((state) => state.app)
-  console.log(weekChart)
   return (
     <div className='overlow-y-auto px-[59px] z-0'>
       <Slider />

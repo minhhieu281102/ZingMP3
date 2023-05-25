@@ -1,14 +1,16 @@
 import React, { memo } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export function Section({ data }) {
+export function Section({ data, hideTitleAlbum }) {
   const navigate = useNavigate()
   return (
     <div className='mt-12 flex flex-col gap-5'>
-      <div className='flex items-center justify-between '>
-        <h3 className='text-[20px] font-bold'>{data?.title}</h3>
-        <span className='text-xs'>TẤT CẢ</span>
-      </div>
+      {!hideTitleAlbum && (
+        <div className='flex items-center justify-between '>
+          <h3 className='text-[20px] font-bold'>{data?.title}</h3>
+          <span className='text-xs'>TẤT CẢ</span>
+        </div>
+      )}
       <div className='flex items-start justify-between gap-[28px]'>
         {data?.items
           ?.filter((item, index) => index <= 4)

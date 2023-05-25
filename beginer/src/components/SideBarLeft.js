@@ -17,7 +17,7 @@ export default function SideBarLeft() {
         onClick={() => navigate(path.HOME)}
         className='w-full h-[70px] py-[15px] px-[25px] flex justify-start items-center'
       >
-        <img src={logo} alt='logo' className='w-[120px] object-contain h-[40px]' />
+        <img src={logo} alt='logo' className='w-[120px] object-contain h-[40px] cursor-pointer' />
       </div>
       <div className='flex flex-col'>
         {sideBarMenu.map((item) => (

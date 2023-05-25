@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const instance = axios.create({
+const instance1 = axios.create({
   baseURL: 'http://localhost:5000/api/'
 })
 
@@ -29,4 +29,4 @@ axios.interceptors.response.use(
   }
 )
 
-export default instance
+export default instance1

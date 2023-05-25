@@ -9,7 +9,8 @@ const initState = {
   top100: {},
   newReleases: {},
   weekChart: {},
-  chart: {}
+  chart: {},
+  rank: []
 }
 
 const appReducer = (state = initState, action) => {
@@ -25,7 +26,8 @@ const appReducer = (state = initState, action) => {
         top100: action.homeData?.find((item) => item.sectionId === 'h100') || {},
         newReleases: action.homeData?.find((item) => item.sectionType === 'new-release') || {},
         weekChart: action.homeData?.find((item) => item.sectionType === 'weekChart') || {},
-        chart: action.homeData?.find((item) => item.sectionType === 'RTChart') || {}
+        chart: action.homeData?.find((item) => item.sectionType === 'RTChart')?.chart || {},
+        rank: action.homeData?.find((item) => item.sectionType === 'RTChart')?.items || []
       }
 
     default:

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import * as actions from '../store/actions'
 
 const { CiMusicNote1 } = icons
-export function List({ songData }) {
+export function List({ songData, isHideAlbum }) {
   const dispatch = useDispatch()
 
   return (
@@ -18,19 +18,21 @@ export function List({ songData }) {
       }}
     >
       <div className='flex items-center gap-2 flex-1 '>
-        <span>
-          <CiMusicNote1 />
-        </span>
+        {!isHideAlbum && (
+          <span>
+            <CiMusicNote1 />
+          </span>
+        )}
         <img src={songData?.thumbnail} alt='' className='w-10 h-10 object-cover rounded-md' />
         <span className='flex flex-col w-[320px]'>
           <span className='text-sm font-semibold'>
             {songData?.title?.length > 30 ? `${songData?.title?.slice(0, 40)}...` : songData?.title}
           </span>
-          <span className='hover:text-hover-pink '>{songData?.artistsNames}</span>
+          <span className='hover:text-hover-pink text-xs opacity-70 hover:underline'>{songData?.artistsNames}</span>
         </span>
       </div>
-      <div className='flex-1 items-center flex hover:text-hover-pink '>{songData?.album?.title}</div>
-      <div className='flex-1 flex justify-end'>{moment.utc(songData?.duration * 1000).format('mm:ss')}</div>
+      {!isHideAlbum && <div className='flex-1 items-center flex hover:text-hover-pink '>{songData?.album?.title}</div>}
+      <div className='flex-1 flex justify-end opacity-70'>{moment.utc(songData?.duration * 1000).format('mm:ss')}</div>
     </div>
   )
 }

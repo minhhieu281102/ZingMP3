@@ -3,7 +3,7 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   theme: {
     colors: {
-      'hover-pink': '#BD8CD6'
+      'hover-pink': '#9633C8'
     },
     extend: {
       keyframes: {
@@ -78,7 +78,9 @@ module.exports = {
       },
       flex: {
         4: '4 4 0%',
-        6: '6 6 0%'
+        6: '6 6 0%',
+        3: '3 3 0%',
+        7: '7 7 0%'
       }
     },
     screens: {

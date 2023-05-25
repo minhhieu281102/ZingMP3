@@ -16,6 +16,7 @@ import { CiSearch, CiRepeat, CiMusicNote1 } from 'react-icons/ci'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { BsThreeDotsVertical, BsDot, BsMusicNoteList, BsVolumeDown, BsVolumeMute, BsVolumeUp } from 'react-icons/bs'
 import { RxShuffle } from 'react-icons/rx'
+import { GrClose } from 'react-icons/gr'
 const icons = {
   MdOutlineLibraryMusic,
   TbChartArcs,
@@ -39,7 +40,8 @@ const icons = {
   BsMusicNoteList,
   BsVolumeDown,
   BsVolumeMute,
-  BsVolumeUp
+  BsVolumeUp,
+  GrClose
 }
 
 export default icons

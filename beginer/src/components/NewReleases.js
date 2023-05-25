@@ -4,7 +4,6 @@ import SongItem from './SongItem'
 
 export default function NewReleases() {
   const { newReleases } = useSelector((state) => state.app)
-  console.log(newReleases)
   return (
     <div className='mt-12 '>
       <div className='flex items-center justify-between '>
@@ -12,16 +11,18 @@ export default function NewReleases() {
         <span className='text-xs'>TẤT CẢ</span>
       </div>
       <div className='flex flex-wrap w-full '>
-        {newReleases?.items?.vPop?.map((item) => (
-          <SongItem
-            key={item?.encodeId}
-            thumbnail={item?.thumbnail}
-            title={item?.title}
-            artist={item?.artistsNames}
-            releaseDate={item?.releaseDate}
-            id={item?.encodeId}
-          />
-        ))}
+        {newReleases?.items?.vPop
+          ?.filter((i, index) => index < 12)
+          ?.map((item) => (
+            <SongItem
+              key={item?.encodeId}
+              thumbnail={item?.thumbnail}
+              title={item?.title}
+              artist={item?.artistsNames}
+              releaseDate={item?.releaseDate}
+              id={item?.encodeId}
+            />
+          ))}
       </div>
     </div>
   )
