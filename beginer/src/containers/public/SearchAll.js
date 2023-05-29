@@ -4,20 +4,23 @@ import { search } from '../../store/actions'
 import { handleNumber } from '../../ultis/fn'
 import { List } from '../../components/List'
 import { Section } from '../../components/Section'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { Artist } from '../../components'
 
 export default function SearchAll() {
   const { searchData } = useSelector((state) => state.music)
   const navigate = useNavigate()
-  console.log(searchData)
+
   return (
-    <div className='w-full flex flex-col px-[60px] pb-[90px]'>
+    <div className='w-full flex flex-col px-[60px] pb-[90px] pt-[20px]'>
       <div className='flex flex-col'>
-        <h3 className='text-lg font-bold mb-5'>Nổi bật</h3>
+        <h3 className='text-lg font-bold mb-5 '>Nổi bật</h3>
         <div className='flex gap-8 cursor-pointer'>
           {searchData?.top && (
-            <div className='p-[10px] flex-1 rounded-md flex gap-8 items-center bg-[#F2F2F2]'>
+            <Link
+              to={searchData?.top?.link}
+              className='p-[10px] flex-1 rounded-md flex gap-8 items-center bg-[#F2F2F2]'
+            >
               <img src={searchData.top.thumbnail} alt='' className={`w-[84px] h-[84px] object-cover rounded-md `} />
               <div className='flex flex-col text-xs'>
                 <span className='mb-[6px]'>{searchData?.top.objectType === 'artist' ? 'Nghệ sĩ' : 'Bài hát'}</span>
@@ -28,7 +31,7 @@ export default function SearchAll() {
                   <span>{searchData?.top?.artistsNames}</span>
                 )}
               </div>
-            </div>
+            </Link>
           )}
           {searchData?.songs
             ?.filter((item, index) => [...Array(2).keys()].some((i) => i === index))
@@ -50,7 +53,7 @@ export default function SearchAll() {
         <h3 className='text-lg font-bold mb-5'>Bài hát</h3>
         <div className='flex justify-between flex-wrap w-full'>
           {searchData?.songs?.map((item) => (
-            <div key={item?.encodeId} className='flex-auto w-[45%]'>
+            <div key={item?.encodeId} className='flex-auto max-w-[48%]'>
               <List songData={item} isHideAlbum />
             </div>
           ))}
@@ -92,21 +95,21 @@ export default function SearchAll() {
               </div>
             ))}
         </div>
-      </div>
-      <div className='flex flex-col w-full mt-[31px]'>
-        <h3 className='text-lg font-bold mb-5'>Nghệ sĩ</h3>
-        <div className='flex   gap-[28px]'>
-          {searchData?.artists
-            ?.filter((i, index) => index < 5)
-            ?.map((item) => (
-              <Artist
-                key={item?.id}
-                image={item?.thumbnailM}
-                title={item?.name}
-                follower={item?.totalFollow}
-                link={item?.link}
-              />
-            ))}
+        <div className='flex flex-col w-full mt-[31px]'>
+          <h3 className='text-lg font-bold mb-5'>Nghệ sĩ</h3>
+          <div className='flex   gap-[28px]'>
+            {searchData?.artists
+              ?.filter((i, index) => index < 5)
+              ?.map((item) => (
+                <Artist
+                  key={item?.id}
+                  image={item?.thumbnailM}
+                  title={item?.name}
+                  follower={item?.totalFollow}
+                  link={item?.link}
+                />
+              ))}
+          </div>
         </div>
       </div>
     </div>

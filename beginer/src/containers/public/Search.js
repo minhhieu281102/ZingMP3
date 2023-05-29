@@ -8,10 +8,9 @@ const activeStyle = 'px-4 hover:text-hover-pink font-semibold cursor:pointer py-
 
 export default function Search() {
   const { keyword } = useSelector((state) => state.music)
-  console.log(keyword)
   return (
     <div>
-      <div className='flex h-[50px] mb-7 items-center text-sm border-b border-[#E7E7E7] pl-[60px] pb-1'>
+      <div className='flex h-[50px]  items-center text-sm border-b border-[#E7E7E7] pl-[60px] pb-1'>
         <span className='text-[24px] font-bold pr-6 border-r border-[#E7E7E7]'>Kết quả tìm kiếm</span>
         <div className='flex items-center '>
           {searchMenu.map((item) => (

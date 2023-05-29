@@ -33,3 +33,31 @@ export const search = (keyword) => async (dispatch) => {
     dispatch({ type: actionTypes.SEARCH, data: null })
   }
 }
+
+export const searchLittleSongs = (id) => async (dispatch) => {
+  try {
+    const response = await apis.apiGetDetailPlaylist(id)
+    console.log(response)
+    if (response.data.err === 0) {
+      dispatch({ type: actionTypes.PLAYLIST, songs: response.data.data.song.items })
+    } else {
+      dispatch({ type: actionTypes.PLAYLIST, songs: null })
+    }
+  } catch (error) {
+    dispatch({ type: actionTypes.PLAYLIST, songs: null })
+  }
+}
+
+export const searchSongs = (singerId) => async (dispatch) => {
+  try {
+    const response = await apis.apiGetArtistSongs(singerId)
+    console.log(response)
+    if (response.data.err === 0) {
+      dispatch({ type: actionTypes.PLAYLIST, songs: response.data.data.song.items })
+    } else {
+      dispatch({ type: actionTypes.PLAYLIST, songs: null })
+    }
+  } catch (error) {
+    dispatch({ type: actionTypes.PLAYLIST, songs: null })
+  }
+}

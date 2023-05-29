@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 
 const { BsDot } = icons
 
-export function Lists({ totalDuration }) {
+export function Lists({ totalDuration, isHideTime }) {
   const { songs } = useSelector((state) => state.music)
   return (
     <div className='w-full flex flex-col text-sm py-3'>
@@ -19,13 +19,15 @@ export function Lists({ totalDuration }) {
         {songs?.map((item) => (
           <List key={item.encodeId} songData={item} />
         ))}
-        <div className='flex pt-3 '>
-          <span>{songs?.length} bài hát</span>
-          <span className='flex items-center justify-center'>
-            <BsDot size={24} />
-          </span>
-          <span>{moment.utc(totalDuration * 1000).format(`hh:mm:ss `)}</span>
-        </div>
+        {!isHideTime && (
+          <div className='flex pt-3 '>
+            <span>{songs?.length} bài hát</span>
+            <span className='flex items-center justify-center'>
+              <BsDot size={24} />
+            </span>
+            <span>{moment.utc(totalDuration * 1000).format(`hh:mm:ss `)}</span>
+          </div>
+        )}
       </div>
     </div>
   )

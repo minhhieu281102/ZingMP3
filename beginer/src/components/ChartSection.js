@@ -11,7 +11,6 @@ export function ChartSection() {
   const { TbPlayerPlayFilled } = icons
   const [data, setData] = useState(null)
   const { chart, rank } = useSelector((state) => state.app)
-  console.log({ chart, rank })
 
   const options = {
     responsive: true,
