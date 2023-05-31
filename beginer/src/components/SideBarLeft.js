@@ -5,9 +5,10 @@ import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import path from '../ultis/path'
 
-const notActiveStyle = 'py-2 px-[21px] px[25px] font-bold text-[13px] flex gap-[12px] items-center justify-start'
+const notActiveStyle =
+  'py-2 px-[21px] px[25px] font-semibold text-[13px] flex gap-[12px] items-center justify-start hover:text-hover-pink'
 const activeStyle =
-  'py-2 px-[21px] px[25px] font-bold text-[13px] flex gap-[12px] items-center justify-start opacity-70'
+  'py-2 px-[21px] px[25px] font-semibold text-[13px] flex gap-[12px] items-center justify-start text-hover-pink bg-[#E6E6E6]'
 
 export default function SideBarLeft() {
   const navigate = useNavigate()

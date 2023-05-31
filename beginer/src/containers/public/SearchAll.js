@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { search } from '../../store/actions'
 import { handleNumber } from '../../ultis/fn'
@@ -10,10 +10,15 @@ import { Artist } from '../../components'
 export default function SearchAll() {
   const { searchData } = useSelector((state) => state.music)
   const navigate = useNavigate()
+  const ref = useRef()
+
+  useEffect(() => {
+    ref.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' })
+  }, [searchData])
 
   return (
     <div className='w-full flex flex-col px-[60px] pb-[90px] pt-[20px]'>
-      <div className='flex flex-col'>
+      <div className='flex flex-col' ref={ref}>
         <h3 className='text-lg font-bold mb-5 '>Nổi bật</h3>
         <div className='flex gap-8 cursor-pointer'>
           {searchData?.top && (

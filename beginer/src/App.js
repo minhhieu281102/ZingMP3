@@ -14,16 +14,23 @@ import {
 } from './containers/public'
 import { Route, Routes } from 'react-router-dom'
 import path from './ultis/path'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import * as actions from './store/actions/home'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { WeekRank } from './components'
+import { apiGetChartHome } from './apis'
 
 function App() {
   const dispatch = useDispatch()
+  const [weekChart, setWeekChart] = useState()
   useEffect(() => {
     dispatch(actions.getHome())
+    const fetchChartHome = async () => {
+      const res = await apiGetChartHome()
+      setWeekChart(res?.data?.data?.weekChart)
+    }
+    fetchChartHome()
   }, [])
   return (
     <div>
@@ -35,7 +42,10 @@ function App() {
             <Route path={path.MY_MUSIC} element={<Personal />} />
             <Route path={path.ALBUM__TITLE__ID} element={<Album />} />
             <Route path={path.PLAYLIST__TITLE__ID} element={<Album />} />
-            <Route path={path.WEEKRANK__TITLE__ID} element={<WeekRank />} />
+            <Route
+              path={path.WEEKRANK__TITLE__ID}
+              element={<WeekRank weekChart={weekChart && Object.values(weekChart)} />}
+            />
             <Route path={path.ZING_CHART} element={<ZingChart />} />
             <Route path={path.HOME__SINGER} element={<Singer />} />
             <Route path={path.HOME_ARTIST__SINGER} element={<Singer />} />
